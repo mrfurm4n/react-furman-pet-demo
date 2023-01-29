@@ -5,13 +5,13 @@ import { BuildOptions } from './types/config';
 import buildPlugins from './buildPlugins';
 import buildLoaders from './buildLoaders';
 import buildResolvers from './buildResolvers';
+import buildDevServer from './buildDevServer';
 
 export default function buildWebpacConfig(options: BuildOptions): Configuration {
-	const { paths, mode } = options;
+	const { paths, mode, isDev } = options;
 
 	return {
 		mode: mode,
-		devtool: 'inline-source-map',
 
 		entry: {
 			bundle: paths.entry,
@@ -23,12 +23,16 @@ export default function buildWebpacConfig(options: BuildOptions): Configuration 
 			clean: true,
 		},
 
-		resolve: buildResolvers(),
-
 		module: {
 			rules: buildLoaders(),
 		},
 
+		resolve: buildResolvers(),
+
 		plugins: buildPlugins(options),
+
+		devServer: isDev ? buildDevServer(options) : undefined,
+
+		devtool: isDev ? 'inline-source-map' : undefined,
 	}
 };
