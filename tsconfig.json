@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"outDir": "./build/",
+		"sourceMap": true,
+		"noImplicitAny": true, // disable any
+		"module": "ESNext", // import & export system module
+		"target": "es5",
+		"jsx": "react",
+		"allowJs": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true, // enable import in webpack config (disable require)
+		"allowSyntheticDefaultImports": true, // enable default export
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		}
+	}
+}
