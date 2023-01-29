@@ -7,6 +7,7 @@
 		"target": "es5",
 		"jsx": "react",
 		"allowJs": true,
+		"baseUrl": ".",
 		"moduleResolution": "node",
 		"esModuleInterop": true, // enable import in webpack config (disable require)
 		"allowSyntheticDefaultImports": true, // enable default export
